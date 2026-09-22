@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+.desktop {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(180, 120, 255, 0.35), transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(110, 60, 180, 0.25), transparent 35%),
+        linear-gradient(135deg, #241338, #10091b);
+
+    color: white;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.top-bar {
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 22px;
+
+    background: rgba(15, 8, 25, 0.65);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    font-size: 13px;
+}
+
+.system-name {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.system-status {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+
+    color: #bda1ff;
+}
+
+
+/* =========================
+   DESKTOP ICONS
+========================= */
+
+.desktop-icons {
+    position: absolute;
+
+    top: 75px;
+    left: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+.desktop-icon {
+    width: 85px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.desktop-icon:hover {
+    transform: translateY(-4px);
+}
+
+.icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 15px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.desktop-icon span {
+    margin-top: 6px;
+
+    font-size: 11px;
+
+    line-height: 1.2;
+
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+
+/* =========================
+   WELCOME WINDOW
+========================= */
+
+.welcome-window {
+    position: absolute;
+
+    width: min(650px, 80vw);
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: rgba(25, 14, 38, 0.88);
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.5);
+
+    animation: windowOpen 0.6s ease;
+}
+
+
+/* =========================
+   WINDOW HEADER
+========================= */
+
+.window-header {
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 14px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 11px;
+}
+
+.window-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.window-buttons button {
+    width: 24px;
+    height: 24px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+.window-buttons button:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+
+/* =========================
+   WINDOW CONTENT
+========================= */
+
+.window-content {
+    padding: 55px 40px;
+
+    text-align: center;
+}
+
+.welcome-icon {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+.window-content h1 {
+    font-size: clamp(28px, 5vw, 44px);
+
+    letter-spacing: -1px;
+
+    margin-bottom: 10px;
+}
+
+.window-content p {
+    color: #bdb2c9;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    max-width: 430px;
+
+    margin: auto;
+}
+
+
+/* =========================
+   STATUS BOX
+========================= */
+
+.status-box {
+    width: fit-content;
+
+    margin: 25px auto;
+
+    padding: 9px 15px;
+
+    border-radius: 20px;
+
+    background: rgba(170, 110, 255, 0.1);
+
+    border: 1px solid rgba(190, 150, 255, 0.25);
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 11px;
+
+    color: #d5c3ff;
+}
+
+.status-box span {
+    color: #a76cff;
+
+    margin-right: 6px;
+}
+
+
+/* =========================
+   START BUTTON
+========================= */
+
+.start-button {
+    border: none;
+
+    padding: 13px 25px;
+
+    border-radius: 12px;
+
+    background: #9b63e6;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+    box-shadow:
+        0 8px 25px rgba(155, 99, 230, 0.25);
+}
+
+.start-button:hover {
+    transform: translateY(-3px);
+
+    background: #a974ee;
+
+    box-shadow:
+        0 12px 30px rgba(155, 99, 230, 0.35);
+}
+
+
+/* =========================
+   TASKBAR
+========================= */
+
+.taskbar {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 15px;
+
+    background: rgba(12, 7, 20, 0.75);
+
+    backdrop-filter: blur(18px);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.start-menu {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: 0.2s ease;
+}
+
+.start-menu:hover {
+    background: rgba(255, 255, 255, 0.15);
+
+    transform: scale(1.05);
+}
+
+.taskbar-title {
+    margin-left: 12px;
+
+    font-size: 12px;
+
+    color: #cfc5d8;
+}
+
+.clock {
+    margin-left: auto;
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 11px;
+
+    color: #aaa0b5;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes windowOpen {
+
+    from {
+        opacity: 0;
+        transform: translate(-50%, -47%) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .desktop-icons {
+        top: 65px;
+        left: 15px;
+
+        gap: 14px;
+    }
+
+    .desktop-icon {
+        width: 70px;
+    }
+
+    .icon {
+        width: 48px;
+        height: 48px;
+
+        font-size: 25px;
+    }
+
+    .desktop-icon span {
+        font-size: 9px;
+    }
+
+    .welcome-window {
+        width: 88vw;
+    }
+
+    .window-content {
+        padding: 40px 20px;
+    }
+
+    .top-bar {
+        padding: 0 14px;
+    }
+
+}
