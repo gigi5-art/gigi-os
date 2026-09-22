@@ -586,6 +586,191 @@ const messages = [
     "WARNING: excessive chaos detected.",
     "System status: somehow functioning.",
     "Reminder: Gigi probably has another idea.",
+
+    // ============================================
+// 🔐 SECRET SYSTEM FEATURES
+// ============================================
+
+
+// ============================================
+// SECRET #1 — PURPLE HEART
+// ============================================
+
+let heartClicks = 0;
+let heartTimer;
+
+startMenu.addEventListener("click", function () {
+
+    heartClicks++;
+
+    clearTimeout(heartTimer);
+
+    heartTimer = setTimeout(function () {
+
+        heartClicks = 0;
+
+    }, 1200);
+
+
+    if (heartClicks === 5) {
+
+        openSecret(
+            "💜 SECRET UNLOCKED",
+            `
+                <h1>💜 YOU FOUND IT</h1>
+
+                <p>
+                    You clicked the purple button
+                    five times.
+                </p>
+
+                <div class="app-card">
+
+                    <h2>SECRET LEVEL: CHAOTIC</h2>
+
+                    <p>
+                        Congratulations, Gigi.
+                        You have discovered something
+                        that was absolutely unnecessary.
+                    </p>
+
+                </div>
+            `
+        );
+
+        heartClicks = 0;
+
+    }
+
+});
+
+
+// ============================================
+// SECRET #2 + #3 — KEYBOARD CODES
+// ============================================
+
+let secretInput = "";
+
+document.addEventListener("keydown", function (event) {
+
+    secretInput += event.key.toLowerCase();
+
+    if (secretInput.length > 20) {
+
+        secretInput =
+            secretInput.slice(-20);
+
+    }
+
+
+    // TAKOYAKI
+
+    if (secretInput.includes("takoyaki")) {
+
+        openSecret(
+            "🍜 GIGI OS // FOOD.exe",
+            `
+                <h1>🍜 TAKOYAKI DETECTED</h1>
+
+                <p>
+                    Emergency food protocol activated.
+                </p>
+
+                <div class="app-card">
+
+                    <h2>⚠️ SYSTEM ALERT</h2>
+
+                    <p>
+                        Twelve pieces have been
+                        detected in the historical records.
+                    </p>
+
+                    <p>
+                        Gigi.exe is now thinking about food.
+                    </p>
+
+                </div>
+            `
+        );
+
+        secretInput = "";
+
+    }
+
+
+    // SPIDEY
+
+    if (secretInput.includes("spidey")) {
+
+        activateSpideyMode();
+
+        secretInput = "";
+
+    }
+
+});
+
+
+// ============================================
+// SECRET WINDOW
+// ============================================
+
+function openSecret(title, content) {
+
+    appTitle.textContent = title;
+
+    appContent.innerHTML = content;
+
+    appWindow.classList.remove("hidden");
+
+}
+
+
+// ============================================
+// SPIDER-MAN MODE
+// ============================================
+
+function activateSpideyMode() {
+
+    document.body.classList.add("spidey-mode");
+
+    appTitle.textContent =
+        "🕷️ GIGI OS // SPIDEY MODE";
+
+    appContent.innerHTML = `
+
+        <h1>🕷️ SPIDEY MODE ACTIVATED</h1>
+
+        <p>
+            With great power comes great responsibility.
+        </p>
+
+        <div class="app-card">
+
+            <h2>WEB-SLINGER STATUS</h2>
+
+            <p>
+                🕷️ Spider-Man mode: ONLINE
+            </p>
+
+            <p>
+                💜 Gigi mode: STILL CHAOTIC
+            </p>
+
+        </div>
+
+    `;
+
+    appWindow.classList.remove("hidden");
+
+
+    setTimeout(function () {
+
+        document.body.classList.remove("spidey-mode");
+
+    }, 8000);
+
+}
     "Current task: absolutely questionable.",
     "Background process: overthinking.",
     "Background process: listening to music.",
