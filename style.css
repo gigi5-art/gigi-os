@@ -737,3 +737,48 @@ body {
     }
 
 }
+
+
+/* ============================================
+   🕷️ SPIDER-MAN MODE
+============================================ */
+
+.spidey-mode .desktop {
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 255, 255, 0.15),
+            transparent 20%
+        ),
+        linear-gradient(
+            135deg,
+            #17091f,
+            #2b0d3d,
+            #10091b
+        );
+
+    transition: background 0.5s ease;
+
+}
+
+
+.spidey-mode .desktop-icon {
+
+    animation:
+        spideyBounce 0.8s ease infinite alternate;
+
+}
+
+
+@keyframes spideyBounce {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-7px);
+    }
+
+}
