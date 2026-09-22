@@ -600,3 +600,60 @@ const randomMessage =
 
 console.log("💜 GIGI OS");
 console.log(randomMessage);
+
+// ============================================
+// 🖱️ DRAGGABLE APP WINDOW
+// ============================================
+
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+const appHeader = document.querySelector(".app-window-header");
+
+appHeader.addEventListener("mousedown", function (event) {
+
+    if (event.target.tagName === "BUTTON") return;
+
+    isDragging = true;
+
+    const rect = appWindow.getBoundingClientRect();
+
+    offsetX = event.clientX - rect.left;
+    offsetY = event.clientY - rect.top;
+
+    appWindow.style.transform = "none";
+
+    appWindow.style.left = rect.left + "px";
+    appWindow.style.top = rect.top + "px";
+
+});
+
+
+document.addEventListener("mousemove", function (event) {
+
+    if (!isDragging) return;
+
+    let newX = event.clientX - offsetX;
+    let newY = event.clientY - offsetY;
+
+    const maxX =
+        window.innerWidth - appWindow.offsetWidth;
+
+    const maxY =
+        window.innerHeight - appWindow.offsetHeight;
+
+    newX = Math.max(0, Math.min(newX, maxX));
+    newY = Math.max(45, Math.min(newY, maxY));
+
+    appWindow.style.left = newX + "px";
+    appWindow.style.top = newY + "px";
+
+});
+
+
+document.addEventListener("mouseup", function () {
+
+    isDragging = false;
+
+});
